@@ -1,0 +1,23 @@
+.btn-add{
+    color: blue;
+}
+
+.table-horiz-scroll {
+    overflow-x:auto;
+ }
+
+ table {
+    table-layout: fixed;
+    
+    word-wrap: break-word;
+}
+
+    table th, table td {
+        overflow: hidden;
+    }
+    @media screen and (max-width: 1200px) {
+        body {
+          overflow: visible;
+        }
+       
+      }
