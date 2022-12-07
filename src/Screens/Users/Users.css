@@ -4,13 +4,20 @@
 
 .table-horiz-scroll {
     overflow-x:auto;
+   
  }
 
  table {
-    table-layout: fixed;
+    table-layout: auto;
     
     word-wrap: break-word;
 }
+table td{
+   text-align: center;
+}
+table th{
+    text-align: center;
+ }
 
     table th, table td {
         overflow: hidden;
@@ -18,6 +25,9 @@
     @media screen and (max-width: 1200px) {
         body {
           overflow: visible;
+        } table {
+            width: 769px !important;
+            font-size: small;
         }
-       
+    
       }

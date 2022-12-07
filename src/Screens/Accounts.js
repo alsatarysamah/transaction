@@ -1,27 +1,26 @@
 "use strict";
-import "./Users.css";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.css";
 import "react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css";
-import Table from "../../components/Table";
 import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Table from "../components/Table";
 
-export default function Users(props) {
-  const [users, setUsers] = useState(
+export default function Accounts(props) {
+  const navigate = useNavigate();
+  const [accounts, setAccounts] = useState(
     localStorage.getItem("users") ? localStorage.getItem("users") : []
   );
-  const navigate = useNavigate();
-
   const columns = [
-    { dataField: "id", text: "Id", sort: true, width: 100 },
-    { dataField: "first_Name", text: "First Name", sort: true },
-    { dataField: "last_Name", text: "Last Name", sort: true },
-    { dataField: "gender", text: "Gender", sort: true },
+    { dataField: "id", text: "Id", sort: true ,width:100},
+    { dataField: "account_Number", text: "Account Number", sort: true },
+    { dataField: "balance", text: "Balance", sort: true },
+    { dataField: "available_Balance", text: "Available Balance", sort: true },
+    { dataField: "currency", text: "Currency", sort: true },
     { dataField: "status", text: "Status", sort: true },
-    { dataField: "date_Of_Birth", text: "Birth Date", sort: true },
     { dataField: "dateTime_UTC", text: "DateTime UTC", sort: true },
     {
       dataField: "update_DateTime_UTC",
@@ -30,32 +29,33 @@ export default function Users(props) {
     },
     { dataField: "server_DateTime", text: "Server DateTime", sort: true },
   ];
-
+  
+/**[Update_DateTime_UTC]
+[Account_Number]
+[Balance]
+[Available_Balance]
+[Currency]
+[Status]
+ */
   
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("http://localhost:5050/user");
+      const res = await axios.get("http://localhost:5050/account");
       localStorage.setItem("users", res.data);
-      setUsers(res.data);
+      setAccounts(res.data);
     };
     fetchData();
   }, []);
   return (
     <div>
-      <h1 className="mt-5">Users</h1>
+      <h1 className="mt-5">Accounts</h1>
       <div className="d-flex  justify-content-end my-3">
-        <Button
-          variant="primary"
-          size="mg"
-          onClick={() => {
-            navigate("/newuser");
-          }}
-        >
-          New User
+        <Button variant="primary" size="mg" onClick={()=>{navigate("/newaccount")}}>
+          New Account
         </Button>
       </div>
       <div className="table-horiz-scroll">
-        <Table data={users} columns={columns} />
+        <Table data={accounts} columns={columns} />
       </div>
     </div>
   );
