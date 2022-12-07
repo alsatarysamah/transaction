@@ -20,7 +20,7 @@ export default function Table(props) {
     nextPageText: '>',
     prePageText: '<',
     showTotal: false,
-    hideSizePerPage:true,
+    hideSizePerPage:true,//select from the  UI how many items per page
     alwaysShowAllBtns: true,
     onPageChange: function (page, sizePerPage) {
       console.log('page', page);

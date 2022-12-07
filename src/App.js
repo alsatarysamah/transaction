@@ -4,6 +4,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import NavBarT from "./components/Navbar";
 import Users from "./Screens/Users/Users";
+import NewUser from "./Screens/NewUser";
+import Accounts from "./Screens/Accounts";
+import NewAccount from "./Screens/NewAccount/NewAccount";
+
+
 
 function App() {
   return (
@@ -15,14 +20,20 @@ function App() {
         <main>
           <Container className="mt-3">
           <Routes>
-              <Route path="/user" element={<Users />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/newuser" element={<NewUser />} />
+              <Route path="/accounts" element={<Accounts/>} />
+              <Route path="/newaccount" element={<NewAccount/>} />
+
+
+
               <Route path="/"  />
 
               </Routes>
           </Container>
-        </main>
-        <footer>
-          <div className="text-center">All right is reserved</div>
+          </main>
+        <footer bg="dark" variant="dark">
+          <div className="text-center"  >All right is reserved</div>
         </footer>
       </div>
     </BrowserRouter>
