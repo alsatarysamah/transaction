@@ -1,8 +1,5 @@
 "use strict";
 import "./Users.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "react-bootstrap-table-next/dist/react-bootstrap-table2.css";
-import "react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css";
 import Table from "../../components/Table";
 import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
@@ -14,9 +11,28 @@ export default function Users(props) {
     localStorage.getItem("users") ? localStorage.getItem("users") : []
   );
   const navigate = useNavigate();
+  const addTransaction = (row) => {
+    navigate("/newaccount", { state: { user: row } });
+  };
 
+  const linkFollow = (cell, row, rowIndex, formatExtraData) => {
+    return (
+      <Button
+        onClick={() => {
+          addTransaction(row);
+        }}
+      >
+        Add
+      </Button>
+    );
+  };
+  const imageFormatter = (cell, row, rowIndex, formatExtraData) => {
+    return <img src={row.img} className="img-fluid rounded img-th"></img>;
+  };
   const columns = [
     { dataField: "id", text: "Id", sort: true, width: 100 },
+    { dataField: "addAccount", text: "Add Account", formatter: linkFollow },
+    { dataField: "img", text: "Image", formatter: imageFormatter },
     { dataField: "first_Name", text: "First Name", sort: true },
     { dataField: "last_Name", text: "Last Name", sort: true },
     { dataField: "gender", text: "Gender", sort: true },
@@ -31,7 +47,6 @@ export default function Users(props) {
     { dataField: "server_DateTime", text: "Server DateTime", sort: true },
   ];
 
-  
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get("http://localhost:5050/user");
@@ -41,8 +56,8 @@ export default function Users(props) {
     fetchData();
   }, []);
   return (
-    <div>
-      <h1 className="mt-5">Users</h1>
+    <div className="my-5">
+      <h1>Users</h1>
       <div className="d-flex  justify-content-end my-3">
         <Button
           variant="primary"
