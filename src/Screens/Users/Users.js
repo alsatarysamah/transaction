@@ -11,10 +11,15 @@ export default function Users(props) {
     localStorage.getItem("users") ? localStorage.getItem("users") : []
   );
   const navigate = useNavigate();
+
+ const handleDelete =(id)=>{
+  console.log("delete");
+  axios.delete(`http://localhost:5050/user/${id}`).then ((e)=>{})
+ }
+
   const addTransaction = (row) => {
     navigate("/newaccount", { state: { user: row } });
   };
-
   const linkFollow = (cell, row, rowIndex, formatExtraData) => {
     return (
       <Button
@@ -26,9 +31,17 @@ export default function Users(props) {
       </Button>
     );
   };
-  const imageFormatter = (cell, row, rowIndex, formatExtraData) => {
-    return <img src={row.img} className="img-fluid rounded img-th"></img>;
+  const deleteFormatter = (cell, row, rowIndex, formatExtraData) => {
+    return (
+      <Button onClick={()=>handleDelete(row.id)} >
+     <i class="fa fa-trash " ></i>
+</Button>
+    );
   };
+  const imageFormatter = (cell, row, rowIndex, formatExtraData) => {
+    return <img src={row.img} className="img-fluid rounded img-th " size="sm"></img>;
+  };
+ 
   const columns = [
     { dataField: "id", text: "Id", sort: true, width: 100 },
     { dataField: "addAccount", text: "Add Account", formatter: linkFollow },
@@ -37,6 +50,8 @@ export default function Users(props) {
     { dataField: "last_Name", text: "Last Name", sort: true },
     { dataField: "gender", text: "Gender", sort: true },
     { dataField: "status", text: "Status", sort: true },
+    { dataField: "delete", text: "Delete", formatter: deleteFormatter },
+
     { dataField: "date_Of_Birth", text: "Birth Date", sort: true },
     { dataField: "dateTime_UTC", text: "DateTime UTC", sort: true },
     {
