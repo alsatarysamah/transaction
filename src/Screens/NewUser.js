@@ -31,7 +31,7 @@ if(!fName||!lName||!gender||!birthDate||!status)
 toast.error("Fill all the feild");
 else
     axios
-      .post("http://localhost:5050/user", {
+      .post("https://mstart.up.railway.app/user", {
         first_Name: fName,
         last_Name: lName,
         gender: gender,

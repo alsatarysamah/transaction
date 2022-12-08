@@ -36,7 +36,7 @@ export default function NewAccount() {
       toast.error("Fill all the field ");
     else
       axios
-        .post("http://localhost:5050/account", {
+        .post("https://mstart.up.railway.app/account", {
           status: status,
           account_Number: accountNum,
           balance: balance,
