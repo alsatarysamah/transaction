@@ -15,28 +15,13 @@ export default function Transaction(props) {
   );
   const navigate = useNavigate();
 
-  //handle add transaction related to the spacific userId and AccountId
-  const addTransaction = (row)=>{
-    navigate('/newtransaction', { state:{userId:row.userId,accountId:row.accountId} })
-  }
-
+ 
   //add btn to the cell
-  const linkFollow = (cell, row, rowIndex, formatExtraData) => {
-    return (
-      <Button
-        onClick={() => {
-          addTransaction(row);
-        }}
-      >
-       Add
-      </Button>
-    );
-  };
+  
   const columns = [
     { dataField: "id", text: "Id", sort: true, width: 100 },
     { dataField: "userId", text: "User ID", sort: true },
     { dataField: "accountId", text: "Account ID", sort: true },
-    { dataField: "addTransaction", text:"Add Trans" , formatter: linkFollow,},
     { dataField: "amount", text: "Amount", sort: true },
     { dataField: "currency", text: "Currency", sort: true },
     { dataField: "Is_Credit", text: "Is Credit", sort: true },

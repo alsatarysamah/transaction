@@ -51,7 +51,7 @@ export default function NewTransaction() {
       })
       .then((data) => {
         toast.success(
-          `New Transaction is added for userID=${state.userId} & AccountID ${state.ammountId}`
+          `New Transaction is added for userID=${state.userId} & AccountID ${state.accountId}`
         );
       })
       .catch((e) => {
