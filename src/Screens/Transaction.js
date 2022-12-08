@@ -62,7 +62,7 @@ export default function Transaction(props) {
       <h1 >Transaction</h1>
      
       <div className="table-horiz-scroll my-3">
-        {transactions ? <Table data={transactions} columns={columns} /> : null}
+     <Table data={transactions} columns={columns} /> 
       </div>
     </div>
   );
