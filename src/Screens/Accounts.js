@@ -33,7 +33,7 @@ export default function Accounts(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("http://localhost:5050/account");
+      const res = await axios.get("https://mstart.up.railway.app/account");
       localStorage.setItem("accounts", res.data);
       setAccounts(res.data);
     };

@@ -40,7 +40,7 @@ export default function NewTransaction() {
     // [DateTime_UTC]
 
     axios
-      .post("http://localhost:5050/transaction", {
+      .post("https://mstart.up.railway.app/transaction", {
         currency: currency,
         userId: state.userId,
         amount: amount,
