@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import NavBarT from "./components/Navbar";
 import Users from "./Screens/Users/Users";
@@ -15,7 +15,7 @@ import Home from "./Screens/Home/Home";
 
 function App() {
   return (
-    <BrowserRouter>
+
       <div className="d-flex flex-column site">
         <header>
           <NavBarT></NavBarT>
@@ -23,27 +23,23 @@ function App() {
         <main>
           <Container className="mt-3">
           <Routes>
-              <Route path="/users" element={<Users />} />
-              <Route path="/newuser" element={<NewUser />} />
-              <Route path="/accounts" element={<Accounts/>} />
-              <Route path="/newaccount" element={<NewAccount/>} />
-              <Route path="/transaction" element={<Transaction/>} />
-              <Route path="/newtransaction" element={<NewTransaction/>} />
-
-
-
-
-
-              <Route path="/"  element={<Home />} />
+              <Route index path="/users" element={<Users />} />
+              <Route index path="/newuser" element={<NewUser />} />
+              <Route index path="/accounts" element={<Accounts/>} />
+              <Route index path="/newaccount" element={<NewAccount/>} />
+              <Route index path="/trans" element={<Transaction/>} />
+              <Route index path="/newtransaction" element={<NewTransaction/>} />
+              <Route index path="/"  element={<Home />} />
 
               </Routes>
+              
           </Container>
           </main>
         <footer bg="dark" variant="dark">
           <div className="text-center"  >All right is reserved</div>
         </footer>
       </div>
-    </BrowserRouter>
+      
   );
 }
 

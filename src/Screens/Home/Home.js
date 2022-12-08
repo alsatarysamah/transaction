@@ -55,7 +55,7 @@ function Home() {
               <strong>Transactions</strong>
             </Card.Title>
 
-            <Button variant="outline-primary" size="md" className="mx-3 shadow" onClick={()=>{navigate("/transaction")}}>
+            <Button variant="outline-primary" size="md" className="mx-3 shadow" onClick={()=>{navigate("/trans")}}>
               List
             </Button>
      
