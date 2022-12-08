@@ -11,12 +11,30 @@ export default function Accounts(props) {
   const [accounts, setAccounts] = useState(
     localStorage.getItem("accounts") ? localStorage.getItem("accounts") : []
   );
+   //handle add transaction related to the spacific userId and AccountId
+   const addTransaction = (row)=>{
+    navigate('/newtransaction', { state:{userId:row.userId,accountId:row.id} })
+  }
+
+  const linkFollow = (cell, row, rowIndex, formatExtraData) => {
+    return (
+      <Button
+        onClick={() => {
+          addTransaction(row);
+        }}
+      >
+       Add
+      </Button>
+    );
+  };
   /** */
   const columns = [
     { dataField: "id", text: "Id", sort: true ,width:100},
     { dataField: "userId", text: "userId", sort: true },
 
     { dataField: "account_Number", text: "Account Number", sort: true },
+    { dataField: "addTransaction", text:"Add Trans" , formatter: linkFollow,},
+
     { dataField: "balance", text: "Balance", sort: true },
     { dataField: "available_Balance", text: "Available Balance", sort: true },
     { dataField: "currency", text: "Currency", sort: true },
