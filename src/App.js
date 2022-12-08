@@ -7,6 +7,9 @@ import Users from "./Screens/Users/Users";
 import NewUser from "./Screens/NewUser";
 import Accounts from "./Screens/Accounts";
 import NewAccount from "./Screens/NewAccount/NewAccount";
+import Transaction from "./Screens/Transaction";
+import NewTransaction from "./Screens/NewTransaction";
+import Home from "./Screens/Home/Home";
 
 
 
@@ -24,10 +27,14 @@ function App() {
               <Route path="/newuser" element={<NewUser />} />
               <Route path="/accounts" element={<Accounts/>} />
               <Route path="/newaccount" element={<NewAccount/>} />
+              <Route path="/transaction" element={<Transaction/>} />
+              <Route path="/newtransaction" element={<NewTransaction/>} />
 
 
 
-              <Route path="/"  />
+
+
+              <Route path="/"  element={<Home />} />
 
               </Routes>
           </Container>

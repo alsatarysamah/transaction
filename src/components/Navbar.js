@@ -11,7 +11,7 @@ export default function NavBarT() {
           <Nav className="mr-auto">
             <Nav.Link href="/users">Users</Nav.Link>
             <Nav.Link href="/accounts">Accounts</Nav.Link>
-            <Nav.Link href="#pricing">Transactions</Nav.Link>
+            <Nav.Link href="/transaction">Transactions</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
