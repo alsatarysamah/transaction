@@ -1,6 +1,3 @@
-# Online Store
-
-An online shopping portal for a fictional store
 
 # Live
 [LiveURL](https://alsatarysamah.github.io/transaction/)
