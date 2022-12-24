@@ -14,7 +14,7 @@ export default function Users(props) {
 
  const handleDelete =(id)=>{
   console.log("delete");
-  axios.delete(`https://mstart.up.railway.app/user/${id}`).then ((e)=>{})
+  axios.delete(`https://mstart.cleverapps.io/user/${id}`).then ((e)=>{})
  }
 
   const addTransaction = (row) => {
@@ -64,7 +64,7 @@ export default function Users(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("https://mstart.up.railway.app/user");
+      const res = await axios.get("https://mstart.cleverapps.io/user");
       localStorage.setItem("users", res.data);
       setUsers(res.data);
     };

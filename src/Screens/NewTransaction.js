@@ -40,7 +40,7 @@ export default function NewTransaction() {
     // [DateTime_UTC]
 
     axios
-      .post("https://mstart.up.railway.app/transaction", {
+      .post("https://mstart.cleverapps.io/transaction", {
         currency: currency,
         userId: state.userId,
         amount: amount,

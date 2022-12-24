@@ -32,7 +32,7 @@ export default function Transaction(props) {
  
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("https://mstart.up.railway.app/transaction");
+      const res = await axios.get("https://mstart.cleverapps.io/transaction");
       localStorage.setItem("transactions", res.data);
       setTransactions(res.data);
      
