@@ -36,7 +36,7 @@ export default function NewAccount() {
       toast.error("Fill all the field ");
     else
       axios
-        .post("https://mstart.up.railway.app/account", {
+        .post("https://mstart.cleverapps.io/account", {
           status: status,
           account_Number: accountNum,
           balance: balance,

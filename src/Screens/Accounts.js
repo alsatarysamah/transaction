@@ -51,7 +51,7 @@ export default function Accounts(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("https://mstart.up.railway.app/account");
+      const res = await axios.get("https://mstart.cleverapps.io/account");
       localStorage.setItem("accounts", res.data);
       setAccounts(res.data);
     };
